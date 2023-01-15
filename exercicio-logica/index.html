@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio de Lógica</title>
+</head>
+<body>
+    <section>
+        <span>Verifica em todo o array a divisão Exata!</span>
+        <button onclick="todos_algoritmo()">Clique Aqui</button><br><br>
+        <span id="resultado"></span>
+    </section>
+    <br><br>
+
+    <section>
+        <span>Informe dois números de 20,65,682,1050,1558,4032,5065,5095,6063,15000</span><br><br>
+        <label for="">Primeiro Número:</label>
+        <input type="text" id="primeiro-numero">
+        <label for="">Segundo Número:</label>
+        <input type="text" id="segundo-numero">
+        <button onclick="algoritmo()">Enviar</button><br><br>
+        <span id="resultado_segundo"></span>
+    </section>
+</body>
+</html>
+
+<script>
+
+const numeros = [20,65,682,1050,1558,4032,5065,5095,6063,15000];
+
+function todos_algoritmo () {
+
+    var primeiro_numero;
+    numeros.slice().reverse().forEach(function(number) {
+        primeiro_numero = number;
+        numeros.forEach(function(number) {
+            segundo_numero = number;            
+            subtrai = primeiro_numero-segundo_numero;
+            if(subtrai>0){
+                dividir4 = subtrai / 4;
+                divisao_exata = dividir4 % 4
+                if(divisao_exata==0){
+                    //console.log(primeiro_numero.toString() + '-' + segundo_numero.toString() + '=' + subtrai.toString()  + ' O resultado ' + subtrai.toString() + ' / 4 restou ' +  divisao_exata.toString());
+                    // alert(primeiro_numero.toString() + '-' + segundo_numero.toString() + '=' + subtrai.toString()  + ' O resultado ' + subtrai.toString() + ' / 4 restou ' +  divisao_exata.toString());
+                    document.getElementById('resultado').innerText = primeiro_numero.toString() + '-' + segundo_numero.toString() + '=' + subtrai.toString()  + ' O resultado ' + subtrai.toString() + ' / 4 restou ' +  divisao_exata.toString();
+                }
+            }
+        });   
+    });
+}
+
+function algoritmo () {
+    const primeiro_numero =  parseInt( document.getElementById('primeiro-numero').value);
+    const segundo_numero = parseInt(document.getElementById('segundo-numero').value);
+
+    if (numeros.indexOf(primeiro_numero) === -1 || numeros.indexOf(segundo_numero) === -1) {
+        alert('Um dos números não existe no sistema!');
+    } else if (primeiro_numero > segundo_numero) {
+        const subtrai = (primeiro_numero - segundo_numero);
+        const dividir4 = subtrai / 4;
+        const divisao_exata = dividir4 % 4
+        if(divisao_exata==0){
+            alert(primeiro_numero + ' - ' + segundo_numero + ' = ' + subtrai + ' / 4 = ' + dividir4 + ' com resto ' + divisao_exata + ' uma divisão Exata!');
+        }else{
+            alert('A divisão não é exata!');
+        }
+    } else {
+        alert('O primeiro numero tem que ser maior que o segundo numero!');
+    }
+}
+
+</script>

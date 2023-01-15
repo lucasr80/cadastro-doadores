@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script  src="https://code.jquery.com/jquery-3.6.3.js"  integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="  crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Cadastro de Doação</title>
+</head>
+<body class="d-flex">
+    
+    <section class="container-fluid bg-body d-flex align-items-center justify-content-center p-2">
+        <form id="form_doador" class="form-label col-sm-12 col-md-10 col-lg-6 bg-light border border-success rounded">
+
+            <legend class="text-center text-white text-uppercase fw-bold p-2 border-bottom bg-success rounded-top">Cadastro para Doação</legend>
+            
+            <fieldset>
+                <div class="row p-2">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="nome" placeholder="Nome completo" required>
+                            <label for="">Nome completo</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-2">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="form-floating">
+                            <input type="email" class="form-control" name="email" placeholder="Email" required>
+                            <label for="">Email</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-2">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="CPF" required>
+                            <label for="">CPF</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6"> 
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="data_cadastro" placeholder="Data do Cadastro" required>
+                            <label for="">Data do Cadastro</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-2">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-floating">
+                            <input type="date" class="form-control" id="data_nascimento" name="data_nascimento" placeholder="Data de Nascimento" required>
+                            <label for="">Data de Nascimento</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" required>
+                            <label for="">Telefone</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-2">
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-floating">
+                            <select class="form-select" id="intervalo" name="intervalo" aria-label="Selecione o intervalo Doação">
+                                <option selected></option>
+                                <option value="0" class="colorGreen">Único</option>
+                                <option value="1">Bimestral</option>
+                                <option value="2">Semestral</option>
+                                <option value="3">Anual</option>
+                            </select>
+                            <label for="intervalo">Intervalo de Doação</label>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="doacao" name="valor_doacao" placeholder="Valor da Doação" required>
+                            <label for="">Valor da Doação</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-2">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="endereco" placeholder="Endereço">
+                            <label for="">Endereço</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <h4 class="text-center text-white text-uppercase fw-bold p-2 border-bottom bg-success">Pagamento</h4>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="d-flex col-sm-6 col-md-6 col-lg-6 col-xl-6 justify-content-center">
+                        <div class="form-check">
+                            <input id="credito" value="0" name="tipo_pagamento" type="radio" class="form-check-input" checked required>
+                            <label class="form-check-label" for="credito">Cartão de crédito</label>
+                        </div>
+                    </div>
+
+                    <div class="d-flex col-sm-6 col-md-6 col-lg-6 col-xl-6 justify-content-center">
+                        <div class="form-check">
+                            <input id="debito" value="1" name="tipo_pagamento" type="radio" class="form-check-input" required>
+                            <label class="form-check-label" for="debito">Cartão de débito</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-2" id="cartao_credito"> 
+                    <div class="row p-2">
+                        <div class="d-flex col-sm-12 col-md-12 col-lg-12 col-xl-12 justify-content-center">
+                            <h6 class="fw-bold">Detalhes do Pagamento</h6>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center row p-2">
+                        <div class="col-sm-12 col-md-6 col-lg-5 col-xl-5">
+                            <label for="cc-nome">Nome no cartão</label>
+                            <input type="text" class="form-control" id="cc-nome" placeholder="" required>
+                            <small class="text-muted">Nome completo, como mostrado no cartão.</small>
+                        </div>
+
+                        <div class="col-sm-8 col-md-5 col-lg-6 col-xl-5">
+                            <label for="cc-numero">Número do cartão de crédito</label>
+                            <input type="text" class="form-control" id="cc-numero" name="numero_cartao" placeholder="">
+                        </div>
+
+                        <div class="col-sm-4 col-md-1 col-lg-1 col-xl-2">
+                            <span class="fa fa-cc-visa fa-2x mt-4" id="visa" aria-hidden="true" style="color: #027878;"></span>
+                            <span class="fa fa-cc-mastercard fa-2x mt-4" id="master" aria-hidden="true" style="color: #ff0202;"></span>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center row p-2">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                            <label for="cc-expiracao">Data de expiração</label>
+                            <input type="text" class="form-control" id="cc-expiracao" placeholder="" required>
+                        </div>
+                        <div class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
+                            <label for="cc-cvv">CVV</label>
+                            <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row p-2" id="cartao_debito" >
+                    <div class="row">
+                        <div class="d-flex col-sm-12 col-xl-12 justify-content-center">
+                            <h6 class="fw-bold">Detalhes do Pagamento</h6>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center row p-2">
+                        <div class="col-sm-6 col-xl-6">
+                            <label for="cc-numero-conta">Número da conta</label>
+                            <input type="text" class="form-control" id="cc-numero-conta" name="conta" placeholder="">
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        
+            <div class="d-flex col-12 justify-content-center align-items-center p-2">
+                <button type="submit" class="btn btn-success fw-bold w-25 h-25 p-2">Enviar</button>
+            </div>            
+        </form>
+
+    </section>
+</body>
+
+<script src="jquery.mask.js"></script>
+
+<script>
+
+    const optDebito = document.getElementById("debito");
+    const optCredito = document.getElementById("credito");
+    document.getElementById("cartao_debito").style.display = 'none';
+
+    optDebito.addEventListener("click", function () {
+        document.getElementById("cartao_credito").style.display = 'none';
+        document.getElementById("cartao_debito").style.display = 'block';
+
+    });
+
+    optCredito.addEventListener("click", function () {
+        document.getElementById("cartao_credito").style.display = 'block';
+        document.getElementById("cartao_debito").style.display = 'none';
+    });
+
+    const cc_numero = document.getElementById("cc-numero");
+
+    document.getElementById("visa").style.display = 'none';
+    document.getElementById("master").style.display = 'none';
+
+    cc_numero.addEventListener("keydown", function (e) {
+        if(document.getElementById("cc-numero").value.length == 0){
+            document.getElementById("visa").style.display = 'none';
+            document.getElementById("master").style.display = 'none';
+            if( e.key>=0 && e.key <= 4 ){
+                document.getElementById("visa").style.display = '';                
+            }else if( e.key >=5 && e.key <= 9 ){
+                document.getElementById("master").style.display = '';
+            }
+        }
+        return;
+    });
+
+    $('#form_doador').submit(function(e) {
+        e.preventDefault();
+        var serialize = $(this).serialize();
+        $.ajax({
+            url: 'php/add_doador.php', 
+            type: 'POST',
+            dataType: "text",
+            data: serialize,
+            success: function(response) {
+                //$('#resp').html(response);
+                alert(response);
+            },
+            error: function(xhr, status, error) {
+                alert(xhr.responseText);
+            }
+        });
+        return false;
+    });
+
+    $(document).ready(function(){
+        $('#cpf').mask('000.000.000-00');
+        $('#telefone').mask('(00) 00000-0000');
+        $('#doacao').mask('000.000.000.000.000,00', {reverse: true});
+        $('#cc-numero').mask('0000 0000 0000 0000');
+        $('#cc-expiracao').mask('00/00');
+    });
+
+</script>
+</html>
